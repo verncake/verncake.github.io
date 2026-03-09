@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico">
+  <link rel="mask-icon" href="/images/favicon.ico" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"tkvern.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":5},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <link rel="canonical" href="https://tkvern.com/20160218/%E4%B8%83%E7%89%9B%E4%BA%91%E5%AD%98%E5%82%A8%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B(Ruby-on-Rails-+-JavaScript)/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <meta property="og:title" content="七牛云存储使用教程(Ruby-on-Rails-+-JavaScript)">
+  <meta property="og:description" content="Developer & Designer. Believe what you believe, and stick to what you insist on.">
+  <meta property="og:image" content="/images/avatar.gif">
+  <meta property="og:url" content="https://tkvern.com/20160218/%E4%B8%83%E7%89%9B%E4%BA%91%E5%AD%98%E5%82%A8%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B(Ruby-on-Rails-+-JavaScript)/">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Vern Blog">
+
+
+  <meta name="weixin:title" content="七牛云存储使用教程(Ruby-on-Rails-+-JavaScript)">
+  <meta name="weixin:description" content="Developer & Designer. Believe what you believe, and stick to what you insist on.">
+  <meta name="weixin:image" content="/images/avatar.gif">
+
+  <title>七牛云存储使用教程(Ruby-on-Rails-+-JavaScript) | Vern Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="Vern Blog" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Vern Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">76</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+  <a href="https://github.com/verncake" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://tkvern.com/20160218/%E4%B8%83%E7%89%9B%E4%BA%91%E5%AD%98%E5%82%A8%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B(Ruby-on-Rails-+-JavaScript)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Vern Zhang">
+      <meta itemprop="description" content="Developer & Designer. Believe what you believe, and stick to what you insist on.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Vern Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          七牛云存储使用教程(Ruby-on-Rails-+-JavaScript)
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2016-02-18 02:20:00" itemprop="dateCreated datePublished" datetime="2016-02-18T02:20:00+08:00">2016-02-18</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2026-03-09 21:52:28" itemprop="dateModified" datetime="2026-03-09T21:52:28+08:00">2026-03-09</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Ruby-on-Rails/" itemprop="url" rel="index"><span itemprop="name">Ruby-on-Rails/</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>吐槽写教程之前不得不吐槽一下七牛的官方文档，API的说明是很全面，但是读起来超蛋疼。为什么这么说呢，按照我以往的看API的文档都会有示例代码跑起来帮助理解，而七牛的API文档对于刚接触这种第三方服务商SDK的开发者来说不是太友好。建议七牛借鉴下百度地图SDK的文档写法。</p>
+<span id="more"></span>
+
+<p>初识七牛云存储是一家专注云存储领域的技术公司，提供云存储、云处理、云加速分发一站式服务，持续追求高可靠、高可用、高性能、高响应速度，推动客户健康稳定地快速发展。（前面是广告）</p>
+<p>以往开发项目时总会遇到上传文件的问题，譬如上传速度、断点续传、资源服务器部署等等。存在自己的服务器上面，维护成本高。那如何解决这些问题呢，有需求就有市场，云存储应运而生，把这些处理统统放到云存储上，只需要进行API调用即可，而这次我们选中了七牛云存储，便宜，好用，快速。（广告打了一大堆，进入正题吧）</p>
+<p>使用教程正式开始</p>
+<p>注册使用前得先注册一个七牛云存储的账号，–&gt;注册传送门&lt;–</p>
+<p>登录认证登录之后查看你的账号身份认证，完成认证解锁更多功能</p>
+<p>获取AK, SK,空间域名这两个KEY值是用来生成上传凭证的</p>
+<p>配置服务器环境在使用七牛云存储前我们先要配置好上传凭证的生成环境</p>
+<p>代码清单3.6.1: 导入七牛云存储的gem包<br>Gemfile</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">source <span class="string">&#x27;https://rubygems.org&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Bundle edge Rails instead: gem &#x27;rails&#x27;, github: &#x27;rails/rails&#x27;</span></span><br><span class="line">gem <span class="string">&#x27;rails&#x27;</span>, <span class="string">&#x27;~&gt;4.2.3&#x27;</span></span><br><span class="line"><span class="comment"># Use postgresql as the database for Active Record</span></span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line">gem <span class="string">&#x27;qiniu&#x27;</span> <span class="comment">#加入七牛云存储gem包</span></span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line">.</span><br></pre></td></tr></table></figure>
+
+<p>代码清单3.6.2: 然后重新bundle我们的项目会看到安装了很多gem包</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">bundle install</span></span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line">Using qiniu 6.5.1</span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line">Bundle complete! 17 Gemfile dependencies, 66 gems now installed.</span><br><span class="line">Use `bundle show [gemname]` to see where a bundled gem is installed.</span><br></pre></td></tr></table></figure>
+
+<p>如果有提示安装失败或是无法安装一些国外的镜像可修改Gemfile的源到淘宝源或是自行翻墙，推荐一款翻墙工具Shadowsocks</p>
+<p>配置AccessKey&#x2F;SecretKey代码清单3.7.1: 新建qiniu_sdk.rb文件,将3.3节获取到的AK,SK,空间域名地址输入下面代码<br>config&#x2F;initializers&#x2F;qiniu_sdk.rb</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">#!/usr/bin/env ruby</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">require</span> <span class="string">&#x27;qiniu&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="title class_">Qiniu</span>.establish_connection! <span class="symbol">:access_key</span> =&gt; <span class="string">&#x27;&lt;输入你的AK&gt;&#x27;</span>,</span><br><span class="line">                            <span class="symbol">:secret_key</span> =&gt; <span class="string">&#x27;&lt;输入你的SK&gt;&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="title class_">Rails</span>.application.config.qiniu_domain = <span class="string">&quot;&lt;空间域名地址&gt;&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>生成上传凭证代码清单3.8.1: 这个方法我会包装到Helper里面<br>app&#x2F;helpers&#x2F;application_helper.rb</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">module</span> <span class="title class_">ApplicationHelper</span></span><br><span class="line">  <span class="keyword">private</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">uptoken</span></span><br><span class="line"></span><br><span class="line">      put_policy = <span class="title class_">Qiniu::Auth::PutPolicy</span>.new(</span><br><span class="line">        <span class="string">&quot;&lt;你的空间名称&gt;&quot;</span>,                    <span class="comment"># 存储空间</span></span><br><span class="line">        <span class="literal">nil</span>,                           <span class="comment"># 最终资源名，可省略，即缺省为“创建”语义</span></span><br><span class="line">        ,                          <span class="comment"># 相对有效期，可省略，缺省为3600秒后 uptoken 过期</span></span><br><span class="line">        (<span class="title class_">Time</span>.now + .minutes).to_i  <span class="comment"># 绝对有效期，可省略，指明 uptoken 过期期限（绝对值），通常用于调试，这里表示半小时</span></span><br><span class="line">      )</span><br><span class="line"></span><br><span class="line">      uptoken = <span class="title class_">Qiniu</span><span class="symbol">:</span><span class="symbol">:Auth</span>.generate_uptoken(put_policy) <span class="comment">#生成凭证</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<p>到目前为止我们以及完成了服务端的所有配置,当我们的文件上传时,是不经过我们自己的服务器的,由客户端通过Ajax请求七牛的API再将返回的文件名存入我们的服务器。接下来就是客户端的配置</p>
+<p>导入七牛JavaScriptSDK–&gt;下载JavaScriptSDK传送门&lt;–</p>
+<p>代码清单3.9.1: 为了代码易于管理我们将七牛的JavaScriptSDK文件放到app&#x2F;assets&#x2F;javascripts&#x2F;plugins目录</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- app</span><br><span class="line">  - assets</span><br><span class="line">    + fonts</span><br><span class="line">    + images</span><br><span class="line">    - javascript</span><br><span class="line">      - plugins</span><br><span class="line">        - plupload</span><br><span class="line">            moxie.js</span><br><span class="line">            plupload.dev.js</span><br><span class="line">            plupload.full.min.js</span><br><span class="line">        - qiniu</span><br><span class="line">            qiniu.js</span><br><span class="line">            qiniu.min.js</span><br><span class="line">      application.js</span><br><span class="line">    + stylesheets</span><br></pre></td></tr></table></figure>
+
+<p>代码清单3.9.2: 引用SDK到application.js<br>app&#x2F;assets&#x2F;javascripts&#x2F;application.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// # Place all the behaviors and hooks related to the matching controller here.</span></span><br><span class="line"><span class="comment">// # All this logic will automatically be available in application.js.</span></span><br><span class="line"><span class="comment">// # You can use CoffeeScript in this file: http://coffeescript.org/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//= require plugins/plupload/moxie</span></span><br><span class="line"><span class="comment">//= require plugins/plupload/plupload.dev</span></span><br><span class="line"><span class="comment">//= require plugins/qiniu/qiniu</span></span><br></pre></td></tr></table></figure>
+
+<p>初始化javascript在完成以上操作之后我们就可以正式使用七牛云存储了</p>
+<p>代码清单3.9.3: 在controller中引入helper方法，传入上传凭证<br>app&#x2F;controllers&#x2F;uploads_controller.rb</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">UploadsController</span> &lt; <span class="title class_ inherited__">ActionController::BaseController</span></span><br><span class="line">  <span class="keyword">include</span> <span class="title class_">ApplicationHelper</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">def</span> <span class="title function_">index</span></span><br><span class="line">    <span class="comment"># 获取上传凭证</span></span><br><span class="line">    <span class="variable">@uptoken</span> = uptoken</span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<p>代码清单3.9.4: 代码清单在视图文件中使用<br>app&#x2F;views&#x2F;upload&#x2F;index.html.erb</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 初始化按钮 start --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-md-12&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;container&quot;</span> <span class="attr">style</span>=<span class="string">&quot;position: absolute; top: 50px;&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span></span></span><br><span class="line"><span class="tag">      <span class="attr">class</span>=<span class="string">&quot;btn btn-default btn-lg &quot;</span></span></span><br><span class="line"><span class="tag">      <span class="attr">id</span>=<span class="string">&quot;pickfiles&quot;</span></span></span><br><span class="line"><span class="tag">      <span class="attr">href</span>=<span class="string">&quot;#&quot;</span></span></span><br><span class="line"><span class="tag">      <span class="attr">style</span>=<span class="string">&quot;position: relative; z-index: 1;&quot;</span></span></span><br><span class="line"><span class="tag">    &gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">&quot;fa fa-plus&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">span</span>&gt;</span>选择文件<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 初始化按钮 end --&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 初始化配置 start --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">var</span> uploader = <span class="title class_">Qiniu</span>.<span class="title function_">uploader</span>(&#123;</span></span><br><span class="line"><span class="language-javascript">          <span class="attr">runtimes</span>: <span class="string">&#x27;html5,html4&#x27;</span>,          <span class="comment">//上传模式,依次退化</span></span></span><br><span class="line"><span class="language-javascript">          <span class="attr">browse_button</span>: <span class="string">&#x27;pickfiles&#x27;</span>,       <span class="comment">//上传选择的点选按钮，**必需**</span></span></span><br><span class="line"><span class="language-javascript">          uptoken : <span class="string">&#x27;&lt;%= @uptoken %&gt;&#x27;</span>,</span></span><br><span class="line"><span class="language-javascript">              <span class="comment">//若未指定uptoken_url,则必须指定 uptoken ,uptoken由其他程序生成</span></span></span><br><span class="line"><span class="language-javascript">          <span class="attr">unique_names</span>: <span class="literal">true</span>,</span></span><br><span class="line"><span class="language-javascript">              <span class="comment">// 默认 false，key为文件名。若开启该选项，SDK会为每个文件自动生成key（文件名）</span></span></span><br><span class="line"><span class="language-javascript">          <span class="attr">save_key</span>: <span class="literal">true</span>,</span></span><br><span class="line"><span class="language-javascript">              <span class="comment">// 默认 false。若在服务端生成uptoken的上传策略中指定了 `sava_key`，则开启，SDK在前端将不对key进行任何处理</span></span></span><br><span class="line"><span class="language-javascript">          <span class="attr">domain</span>: <span class="string">&#x27;&lt;%= Rails.application.config.qiniu_domain %&gt;&#x27;</span>,</span></span><br><span class="line"><span class="language-javascript">              <span class="comment">//bucket 域名，下载资源时用到，**必需**</span></span></span><br><span class="line"><span class="language-javascript">          <span class="attr">container</span>: <span class="string">&#x27;container&#x27;</span>,           <span class="comment">//上传区域DOM ID，默认是browser_button的父元素，</span></span></span><br><span class="line"><span class="language-javascript">          <span class="attr">max_file_size</span>: <span class="string">&#x27;5mb&#x27;</span>,           <span class="comment">//最大文件体积限制</span></span></span><br><span class="line"><span class="language-javascript">          <span class="comment">// flash_swf_url: &#x27;js/plupload/Moxie.swf&#x27;,  //引入flash,相对路径</span></span></span><br><span class="line"><span class="language-javascript">          <span class="attr">max_retries</span>: ,                   <span class="comment">//上传失败最大重试次数</span></span></span><br><span class="line"><span class="language-javascript">          <span class="attr">dragdrop</span>: <span class="literal">true</span>,                   <span class="comment">//开启可拖曳上传</span></span></span><br><span class="line"><span class="language-javascript">          <span class="attr">drop_element</span>: <span class="string">&#x27;container&#x27;</span>,        <span class="comment">//拖曳上传区域元素的ID，拖曳文件或文件夹后可触发上传</span></span></span><br><span class="line"><span class="language-javascript">          <span class="attr">chunk_size</span>: <span class="string">&#x27;1mb&#x27;</span>,                <span class="comment">//分块上传时，每片的体积</span></span></span><br><span class="line"><span class="language-javascript">          <span class="attr">auto_start</span>: <span class="literal">true</span>,                 <span class="comment">//选择文件后自动上传，若关闭需要自己绑定事件触发上传</span></span></span><br><span class="line"><span class="language-javascript">          <span class="attr">init</span>: &#123;</span></span><br><span class="line"><span class="language-javascript">              <span class="string">&#x27;FilesAdded&#x27;</span>: <span class="keyword">function</span>(<span class="params">up, files</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">                  plupload.<span class="title function_">each</span>(files, <span class="keyword">function</span>(<span class="params">file</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">                      <span class="comment">// ���件添加进队列后,处理相关的事情</span></span></span><br><span class="line"><span class="language-javascript">                  &#125;);</span></span><br><span class="line"><span class="language-javascript">              &#125;,</span></span><br><span class="line"><span class="language-javascript">              <span class="string">&#x27;BeforeUpload&#x27;</span>: <span class="keyword">function</span>(<span class="params">up, file</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">                     <span class="comment">// 每个文件上传前,处理相关的事情</span></span></span><br><span class="line"><span class="language-javascript">              &#125;,</span></span><br><span class="line"><span class="language-javascript">              <span class="string">&#x27;UploadProgress&#x27;</span>: <span class="keyword">function</span>(<span class="params">up, file</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">                     <span class="comment">// 每个文件上传时,处理相关的事情</span></span></span><br><span class="line"><span class="language-javascript">              &#125;,</span></span><br><span class="line"><span class="language-javascript">              <span class="string">&#x27;FileUploaded&#x27;</span>: <span class="keyword">function</span>(<span class="params">up, file, info</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">                     <span class="comment">// 每个文件上传成功后,处理相关的事情</span></span></span><br><span class="line"><span class="language-javascript">                     <span class="comment">// 其中 info 是文件上传成功后，服务端返回的json，形式如</span></span></span><br><span class="line"><span class="language-javascript">                     <span class="comment">// &#123;</span></span></span><br><span class="line"><span class="language-javascript">                     <span class="comment">//    &quot;hash&quot;: &quot;Fh8xVqod2MQ1mocfI4S4KpRL6D98&quot;,</span></span></span><br><span class="line"><span class="language-javascript">                     <span class="comment">//    &quot;key&quot;: &quot;gogopher.jpg&quot;</span></span></span><br><span class="line"><span class="language-javascript">                     <span class="comment">//  &#125;</span></span></span><br><span class="line"><span class="language-javascript">                     <span class="comment">// 参考http://developer.qiniu.com/docs/v6/api/overview/up/response/simple-response.html</span></span></span><br><span class="line"><span class="language-javascript">                     <span class="keyword">var</span> domain = up.<span class="title function_">getOption</span>(<span class="string">&#x27;domain&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">                     <span class="keyword">var</span> res = $.<span class="title function_">parseJSON</span>(info);</span></span><br><span class="line"><span class="language-javascript">                     <span class="keyword">var</span> sourceLink = domain + res.<span class="property">key</span>; <span class="comment">//获取上传成功后的文件的Url</span></span></span><br><span class="line"><span class="language-javascript">                     <span class="variable language_">console</span>.<span class="title function_">log</span>(info);</span></span><br><span class="line"><span class="language-javascript">                     <span class="variable language_">console</span>.<span class="title function_">log</span>(sourceLink);</span></span><br><span class="line"><span class="language-javascript">              &#125;,</span></span><br><span class="line"><span class="language-javascript">              <span class="string">&#x27;Error&#x27;</span>: <span class="keyword">function</span>(<span class="params">up, err, errTip</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">                     <span class="comment">//上传出错时,处理相关的事情</span></span></span><br><span class="line"><span class="language-javascript">              &#125;,</span></span><br><span class="line"><span class="language-javascript">              <span class="string">&#x27;UploadComplete&#x27;</span>: <span class="keyword">function</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">                     <span class="comment">//队列文件处理完毕后,处理相关的事情</span></span></span><br><span class="line"><span class="language-javascript">              &#125;,</span></span><br><span class="line"><span class="language-javascript">              <span class="string">&#x27;Key&#x27;</span>: <span class="keyword">function</span>(<span class="params">up, file</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">                  <span class="comment">// 若想在前端对每个文件的key进行个性化处理，可以配置该函数</span></span></span><br><span class="line"><span class="language-javascript">                  <span class="comment">// 该配置必须要在 unique_names: false , save_key: false 时才生效</span></span></span><br><span class="line"><span class="language-javascript">                  <span class="keyword">var</span> key = <span class="string">&quot;&quot;</span>;</span></span><br><span class="line"><span class="language-javascript">                  <span class="comment">// do something with key here</span></span></span><br><span class="line"><span class="language-javascript">                  <span class="keyword">return</span> key</span></span><br><span class="line"><span class="language-javascript">              &#125;</span></span><br><span class="line"><span class="language-javascript">          &#125;</span></span><br><span class="line"><span class="language-javascript">      &#125;);</span></span><br><span class="line"><span class="language-javascript">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 初始化配置 end --&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>代码清单3.9.5: 完成了这么多复杂的操作后终于可以试试效果了，启动Rails服务器看看吧</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">rails server -b <span class="variable">$IP</span> -p <span class="variable">$PORT</span></span></span><br></pre></td></tr></table></figure>
+
+<p>作者如果教程里面有什么纰漏的地方请给我留言</p>
+
+    </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>Vern Zhang
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    <a href="https://tkvern.com/20160218/%E4%B8%83%E7%89%9B%E4%BA%91%E5%AD%98%E5%82%A8%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B(Ruby-on-Rails-+-JavaScript)/" title="七牛云存储使用教程(Ruby-on-Rails-+-JavaScript)">https://tkvern.com/20160218/七牛云存储使用教程(Ruby-on-Rails-+-JavaScript)/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+        
+
+  <div class="followme">
+    <p>Welcome to my other publishing channels</p>
+
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+        </div>
+    </div>
+  </div>
+
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/20151210/Gulp%E6%9E%84%E5%BB%BA%E5%AE%9E%E4%BE%8B/" rel="prev" title="Gulp构建实例">
+      <i class="fa fa-chevron-left"></i> Gulp构建实例
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/20160320/wysiwyg-rails-%E7%BC%96%E8%BE%91%E5%99%A8%E6%94%AF%E6%8F%B4%E4%B8%83%E7%89%9B%E4%BA%91%E5%AD%98%E5%82%A8/" rel="next" title="wysiwyg-rails-编辑器支援七牛云存储">
+      wysiwyg-rails-编辑器支援七牛云存储 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Vern Zhang</p>
+  <div class="site-description" itemprop="description">Developer & Designer. Believe what you believe, and stick to what you insist on.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">76</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+  </nav>
+</div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2026</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Vern Zhang</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  <script src="//cdn.jsdelivr.net/npm/quicklink@1/dist/quicklink.umd.js"></script>
+  <script>
+      window.addEventListener('load', () => {
+      quicklink({
+        timeout : 3000,
+        priority: true,
+        ignores : [uri => uri.includes('#'),uri => uri === 'https://tkvern.com/20160218/%E4%B8%83%E7%89%9B%E4%BA%91%E5%AD%98%E5%82%A8%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B(Ruby-on-Rails-+-JavaScript)/',]
+      });
+      });
+  </script>
+
+</body>
+</html>

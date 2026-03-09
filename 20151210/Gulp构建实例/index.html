@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico">
+  <link rel="mask-icon" href="/images/favicon.ico" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"tkvern.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":5},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <link rel="canonical" href="https://tkvern.com/20151210/Gulp%E6%9E%84%E5%BB%BA%E5%AE%9E%E4%BE%8B/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <meta property="og:title" content="Gulp构建实例">
+  <meta property="og:description" content="Developer & Designer. Believe what you believe, and stick to what you insist on.">
+  <meta property="og:image" content="/images/avatar.gif">
+  <meta property="og:url" content="https://tkvern.com/20151210/Gulp%E6%9E%84%E5%BB%BA%E5%AE%9E%E4%BE%8B/">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Vern Blog">
+
+
+  <meta name="weixin:title" content="Gulp构建实例">
+  <meta name="weixin:description" content="Developer & Designer. Believe what you believe, and stick to what you insist on.">
+  <meta name="weixin:image" content="/images/avatar.gif">
+
+  <title>Gulp构建实例 | Vern Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="Vern Blog" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Vern Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">76</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+  <a href="https://github.com/verncake" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://tkvern.com/20151210/Gulp%E6%9E%84%E5%BB%BA%E5%AE%9E%E4%BE%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Vern Zhang">
+      <meta itemprop="description" content="Developer & Designer. Believe what you believe, and stick to what you insist on.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Vern Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Gulp构建实例
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2015-12-10 02:20:00" itemprop="dateCreated datePublished" datetime="2015-12-10T02:20:00+08:00">2015-12-10</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2026-03-09 21:52:28" itemprop="dateModified" datetime="2026-03-09T21:52:28+08:00">2026-03-09</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Front-end/" itemprop="url" rel="index"><span itemprop="name">Front-end/</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>结构说明assets项目资源目录，dev开发目录，dist编译输出目录，gulpfile.js自动化工具API</p>
+<span id="more"></span>
+
+<p>gulp的使用安装node环境(自行goole即可)全局安装gulp</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">npm install gulp -g</span></span><br></pre></td></tr></table></figure>
+
+<p>进入到需要gulp管理的项目路径, 如 &#x2F;gulp 再安装一遍</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">npm install gulp --save-dev</span></span><br></pre></td></tr></table></figure>
+
+<p>安装gulp插件</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">npm install --save-dev gulp-ruby-sass gulp-autoprefixer gulp-minify-css gulp-jshint gulp-concat gulp-uglify gulp-imagemin gulp-notify gulp-rename gulp-livereload gulp-cache del</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">sass的编译 (<span class="string">`gulp-ruby-sass`</span>)</span><br><span class="line">自动添加css前缀（<span class="string">`gulp-autoprefixer`</span>）</span><br><span class="line">压缩css（<span class="string">`gulp-minify-css`</span>）</span><br><span class="line">js代码校验（<span class="string">`gulp-jshint`</span>）</span><br><span class="line">合并js文件（<span class="string">`gulp-concat`</span>）</span><br><span class="line">压缩js代码（<span class="string">`gulp-uglify`</span>）</span><br><span class="line">压缩图片（<span class="string">`gulp-imagemin`</span>）</span><br><span class="line">自动刷新页面（<span class="string">`gulp-livereload`</span>）</span><br><span class="line">图片缓存，只有图片替换了才压缩（<span class="string">`gulp-cache`</span>）</span><br><span class="line">更改提醒（<span class="string">`gulp-notify`</span>）</span><br><span class="line">清除文件（<span class="string">`del`</span>）</span><br></pre></td></tr></table></figure>
+
+<p>5.运行task任务</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">gulp</span></span><br></pre></td></tr></table></figure>
+
+<p>监听文档实现实时编译</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">gulp watch</span></span><br></pre></td></tr></table></figure>
+
+<p>gulp的API请查看gulpfile.js文件scss文件规范以及说明各个小模块以下划线开头全小写命名多单词以 - 符号分隔，总模块正常，以该模块文件夹命名，在其中导入需要的小模块(详细规则请查看font-awesome的scss源码，更多内容google脑补)<br>例：<br>_path.scss路径配置文件，_mixins.scss预编译文件，_variables.scss变量定义文件，font-awesome.scss模块导入文件</p>
+<p>脚本使用说明基本组件error.js用途：低版本浏览器访问限制<br>用法：在head标签中最先引入下列代码</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;!--[<span class="keyword">if</span> lt <span class="variable constant_">IE</span> ]&gt;</span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;dist/js/error.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line">&lt;![endif]--&gt;</span><br></pre></td></tr></table></figure>
+
+<p>mian.js用途：javascript入口文件负责渲染数据处理交互<br>用法：引入即可，涉及模块较多后续完善模块说明</p>
+<p>date.js用途：解析处理日期数据，支持多种日期格式<br>用法：调用Date方法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Date</span>.<span class="title function_">today</span>(); <span class="comment">// Returns today&#x27;s date, with time set to 00:00 (start of day).</span></span><br><span class="line"></span><br><span class="line"><span class="title class_">Date</span>.<span class="title function_">today</span>().<span class="title function_">next</span>().<span class="title function_">friday</span>(); <span class="comment">// Returns the date of the next Friday.</span></span><br><span class="line"><span class="title class_">Date</span>.<span class="title function_">today</span>().<span class="title function_">last</span>().<span class="title function_">monday</span>(); <span class="comment">// Returns the date of the previous Monday.</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> <span class="title class_">Date</span>().<span class="title function_">next</span>().<span class="title function_">march</span>(); <span class="comment">// Returns the date of the next March.</span></span><br><span class="line"><span class="keyword">new</span> <span class="title class_">Date</span>().<span class="title function_">last</span>().<span class="title function_">week</span>(); <span class="comment">// Returns the date one week ago.</span></span><br><span class="line"></span><br><span class="line"><span class="title class_">Date</span>.<span class="title function_">today</span>().<span class="title function_">is</span>().<span class="title function_">friday</span>(); <span class="comment">// Returns true|false if the day-of-week matches.</span></span><br><span class="line"><span class="title class_">Date</span>.<span class="title function_">today</span>().<span class="title function_">is</span>().<span class="title function_">fri</span>(); <span class="comment">// Abbreviated day names.</span></span><br><span class="line"></span><br><span class="line"><span class="title class_">Date</span>.<span class="title function_">today</span>().<span class="title function_">is</span>().<span class="title function_">november</span>(); <span class="comment">// Month names.</span></span><br><span class="line"><span class="title class_">Date</span>.<span class="title function_">today</span>().<span class="title function_">is</span>().<span class="title function_">nov</span>(); <span class="comment">// Abbreviated month names.</span></span><br></pre></td></tr></table></figure>
+
+<p>daterange-picker.js用途：基于bootstrapt的日期范围选择器</p>
+<p>modernizr.custom.js用途：提供过渡动画支持</p>
+<p>jQuery组件jquery.bootstrap.wizard.js用途：基于jQuery的Bootstrap向导式插件</p>
+<p>jquery.dataTables.js用途：表格处理插件，包括排序分页，宽度自动处理<br>用法：引入后，以下结构绘制表格<br>例：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span> <span class="attr">class</span>=<span class="string">&quot;table table-bordered&quot;</span> <span class="attr">id</span>=<span class="string">&quot;dataTable1&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">thead</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">th</span> <span class="attr">class</span>=<span class="string">&quot;check-header&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">label</span></span></span><br><span class="line"><span class="tag">        &gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">&quot;checkAll&quot;</span> <span class="attr">name</span>=<span class="string">&quot;checkAll&quot;</span> <span class="attr">type</span>=<span class="string">&quot;checkbox&quot;</span> /&gt;</span><span class="tag">&lt;<span class="name">span</span>&gt;</span>&lt;/span</span><br><span class="line">      &gt;<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">th</span>&gt;</span>字段1<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">th</span>&gt;</span>字段2<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">th</span>&gt;</span>字段3<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">th</span>&gt;</span>字段4<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">th</span>&gt;</span>字段5<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">th</span>&gt;</span>字段6<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">th</span>&gt;</span><span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">thead</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">tbody</span>&gt;</span></span><br><span class="line">    ... ... ...</span><br><span class="line">  <span class="tag">&lt;/<span class="name">tbody</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">    根据ID初始化表格，以下 .table 类用于实现单选和多选</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">$(<span class="string">&quot;#dataTable1&quot;</span>).<span class="title function_">dataTable</span>(&#123;</span><br><span class="line">  <span class="attr">sPaginationType</span>: <span class="string">&quot;full_numbers&quot;</span>,</span><br><span class="line">  <span class="attr">aoColumnDefs</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">bSortable</span>: <span class="literal">false</span>,</span><br><span class="line">      <span class="attr">aTargets</span>: [, -<span class="number">1</span>],</span><br><span class="line">    &#125;,</span><br><span class="line">  ],</span><br><span class="line">&#125;);</span><br><span class="line">$(<span class="string">&quot;.table&quot;</span>).<span class="title function_">each</span>(<span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> $(<span class="string">&quot;.table #checkAll&quot;</span>).<span class="title function_">click</span>(<span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> ($(<span class="string">&quot;.table #checkAll&quot;</span>).<span class="title function_">is</span>(<span class="string">&quot;:checked&quot;</span>)) &#123;</span><br><span class="line">      <span class="keyword">return</span> $(<span class="string">&quot;.table input[type=checkbox]&quot;</span>).<span class="title function_">each</span>(<span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> $(<span class="variable language_">this</span>).<span class="title function_">prop</span>(<span class="string">&quot;checked&quot;</span>, <span class="literal">true</span>);</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> $(<span class="string">&quot;.table input[type=checkbox]&quot;</span>).<span class="title function_">each</span>(<span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> $(<span class="variable language_">this</span>).<span class="title function_">prop</span>(<span class="string">&quot;checked&quot;</span>, <span class="literal">false</span>);</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>jquery.easy-pie-chart.js用途：饼状图绘制工具<br>用法：引入文件后，按ID初始化DOM元素<br>传送门：rendro.github.io<br>例：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- Donut Charts --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-lg-8&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;widget-container&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;heading&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">&quot;fa fa-bar-chart&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span> 优惠券使用率</span><br><span class="line"></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;widget-content clearfix&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-sm-4&quot;</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">div</span></span></span><br><span class="line"><span class="tag">            <span class="attr">class</span>=<span class="string">&quot;pie-chart1 pie-chart pie-number easyPieChart&quot;</span></span></span><br><span class="line"><span class="tag">            <span class="attr">data-percent</span>=<span class="string">&quot;60&quot;</span></span></span><br><span class="line"><span class="tag">            <span class="attr">style</span>=<span class="string">&quot;width: 200px; height: 200px; line-height: 200px;&quot;</span></span></span><br><span class="line"><span class="tag">          &gt;</span></span><br><span class="line">            60%</span><br><span class="line">            <span class="tag">&lt;<span class="name">canvas</span> <span class="attr">width</span>=<span class="string">&quot;200&quot;</span> <span class="attr">height</span>=<span class="string">&quot;200&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">&quot;h6&quot;</span>&gt;</span>总使用率<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-sm-4&quot;</span>&gt;</span></span><br><span class="line">              <span class="tag">&lt;<span class="name">div</span></span></span><br><span class="line"><span class="tag">                <span class="attr">class</span>=<span class="string">&quot;pie-chart2 pie-chart pie-number easyPieChart&quot;</span></span></span><br><span class="line"><span class="tag">                <span class="attr">data-percent</span>=<span class="string">&quot;86&quot;</span></span></span><br><span class="line"><span class="tag">                <span class="attr">style</span>=<span class="string">&quot;width: 200px; height: 200px; line-height: 200px;&quot;</span></span></span><br><span class="line"><span class="tag">              &gt;</span></span><br><span class="line">                86%</span><br><span class="line">                <span class="tag">&lt;<span class="name">canvas</span> <span class="attr">width</span>=<span class="string">&quot;200&quot;</span> <span class="attr">height</span>=<span class="string">&quot;200&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">&quot;h6&quot;</span>&gt;</span>代金券使用率<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line">                <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-sm-4&quot;</span>&gt;</span></span><br><span class="line">                  <span class="tag">&lt;<span class="name">div</span></span></span><br><span class="line"><span class="tag">                    <span class="attr">class</span>=<span class="string">&quot;pie-chart3 pie-chart pie-number easyPieChart&quot;</span></span></span><br><span class="line"><span class="tag">                    <span class="attr">data-percent</span>=<span class="string">&quot;34&quot;</span></span></span><br><span class="line"><span class="tag">                    <span class="attr">style</span>=<span class="string">&quot;width: 200px; height: 200px; line-height: 200px;&quot;</span></span></span><br><span class="line"><span class="tag">                  &gt;</span></span><br><span class="line">                    34%</span><br><span class="line">                    <span class="tag">&lt;<span class="name">canvas</span> <span class="attr">width</span>=<span class="string">&quot;200&quot;</span> <span class="attr">height</span>=<span class="string">&quot;200&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">&quot;h6&quot;</span>&gt;</span>折扣券使用率<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line">                    <span class="comment">&lt;!-- end Donut Charts --&gt;</span></span><br><span class="line">                  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">              <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"># =============================================================================</span></span><br><span class="line"><span class="comment">#   Easy Pie Chart</span></span><br><span class="line"><span class="comment"># =============================================================================</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="comment">/*  &gt;60%          #81e970   green</span></span><br><span class="line"><span class="comment">    &gt;=30% &amp; &lt;=60% #fab43b   yellow</span></span><br><span class="line"><span class="comment">    &lt;30%          #f46f50   red</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    size        图型大小</span></span><br><span class="line"><span class="comment">    lineWidth   线宽</span></span><br><span class="line"><span class="comment">    lineCap     线类型</span></span><br><span class="line"><span class="comment">    barColor    线颜色</span></span><br><span class="line"><span class="comment">    animate     动画速度</span></span><br><span class="line"><span class="comment">    scaleColor  选择色</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">$(<span class="string">&quot;.pie-chart1&quot;</span>).<span class="title function_">easyPieChart</span>(&#123;</span><br><span class="line">  <span class="attr">size</span>: ,</span><br><span class="line">  <span class="attr">lineWidth</span>: ,</span><br><span class="line">  <span class="attr">lineCap</span>: <span class="string">&quot;square&quot;</span>,</span><br><span class="line">  <span class="attr">barColor</span>: <span class="string">&quot;#81e970&quot;</span>,</span><br><span class="line">  <span class="attr">animate</span>: ,</span><br><span class="line">  <span class="attr">scaleColor</span>: <span class="literal">false</span></span><br><span class="line">&#125;);</span><br><span class="line">$(<span class="string">&quot;.pie-chart2&quot;</span>).<span class="title function_">easyPieChart</span>(&#123;</span><br><span class="line">  <span class="attr">size</span>: ,</span><br><span class="line">  <span class="attr">lineWidth</span>: ,</span><br><span class="line">  <span class="attr">lineCap</span>: <span class="string">&quot;square&quot;</span>,</span><br><span class="line">  <span class="attr">barColor</span>: <span class="string">&quot;#81e970&quot;</span>,</span><br><span class="line">  <span class="attr">animate</span>: ,</span><br><span class="line">  <span class="attr">scaleColor</span>: <span class="literal">false</span></span><br><span class="line">&#125;);</span><br><span class="line">$(<span class="string">&quot;.pie-chart3&quot;</span>).<span class="title function_">easyPieChart</span>(&#123;</span><br><span class="line">  <span class="attr">size</span>: ,</span><br><span class="line">  <span class="attr">lineWidth</span>: ,</span><br><span class="line">  <span class="attr">lineCap</span>: <span class="string">&quot;square&quot;</span>,</span><br><span class="line">  <span class="attr">barColor</span>: <span class="string">&quot;#f46f50&quot;</span>,</span><br><span class="line">  <span class="attr">animate</span>: ,</span><br><span class="line">  <span class="attr">scaleColor</span>: <span class="literal">false</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>jquery.sparkline.js用途：canvas图表绘制工具<br>用法：引入后按ID初始化，ul部分为横轴坐标，可在style.scss文件中配置宽度<br>传送门：omnipotent.net<br>例：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;widget-container&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;heading&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">&quot;fa fa-area-chart&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span> 日活跃用户</span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;widget-content padded&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;chart-graph line-chart&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;linechart-2-1&quot;</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">canvas</span></span></span><br><span class="line"><span class="tag">            <span class="attr">width</span>=<span class="string">&quot;619&quot;</span></span></span><br><span class="line"><span class="tag">            <span class="attr">height</span>=<span class="string">&quot;226&quot;</span></span></span><br><span class="line"><span class="tag">            <span class="attr">style</span>=<span class="string">&quot;display: inline-block; width: 619px; height: 226px; vertical-align: top;&quot;</span></span></span><br><span class="line"><span class="tag">          &gt;</span><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">&quot;chart-text-axis day&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span>1<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span>5<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span>10<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span>15<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span>20<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span>25<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">          <span class="comment">&lt;!-- end Line Chart --&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">(<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">var</span> linechartResize;</span><br><span class="line">  <span class="comment">/*</span></span><br><span class="line"><span class="comment">    $(id).sparkline([number1, number2， ... ...],&#123;</span></span><br><span class="line"><span class="comment">        options</span></span><br><span class="line"><span class="comment">    &#125;)</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    type:                       线类型</span></span><br><span class="line"><span class="comment">    width:                      宽度</span></span><br><span class="line"><span class="comment">    height:                     高度</span></span><br><span class="line"><span class="comment">    lineColor:                  线颜色</span></span><br><span class="line"><span class="comment">    fillColor:                  填充色</span></span><br><span class="line"><span class="comment">    lineWidth:                  线宽</span></span><br><span class="line"><span class="comment">    spotColor:                  点色</span></span><br><span class="line"><span class="comment">    minSpotColor:               最小点色</span></span><br><span class="line"><span class="comment">    maxSpotColor:               最大点色</span></span><br><span class="line"><span class="comment">    highlightSpotColor:         高亮点色</span></span><br><span class="line"><span class="comment">    highlightLineColor:         高亮线色</span></span><br><span class="line"><span class="comment">    spotRadius:                 点半径</span></span><br><span class="line"><span class="comment">    chartRangeMin:              图最小范围</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line">  linechartResize = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    $(<span class="string">&quot;#linechart-1&quot;</span>).<span class="title function_">sparkline</span>([, , , , , , , , , , , , , , , , , , , , ,, , , , , , , , , ], &#123;</span><br><span class="line">      <span class="attr">type</span>: <span class="string">&quot;line&quot;</span>,</span><br><span class="line">      <span class="attr">width</span>: <span class="string">&quot;100%&quot;</span>,</span><br><span class="line">      <span class="attr">height</span>: <span class="string">&quot;226&quot;</span>,</span><br><span class="line">      <span class="attr">lineColor</span>: <span class="string">&quot;#a5e1ff&quot;</span>,</span><br><span class="line">      <span class="attr">fillColor</span>: <span class="string">&quot;rgba(241, 251, 255, 0.9)&quot;</span>,</span><br><span class="line">      <span class="attr">lineWidth</span>: ,</span><br><span class="line">      <span class="attr">spotColor</span>: <span class="string">&quot;#a5e1ff&quot;</span>,</span><br><span class="line">      <span class="attr">minSpotColor</span>: <span class="string">&quot;#bee3f6&quot;</span>,</span><br><span class="line">      <span class="attr">maxSpotColor</span>: <span class="string">&quot;#a5e1ff&quot;</span>,</span><br><span class="line">      <span class="attr">highlightSpotColor</span>: <span class="string">&quot;#80cff4&quot;</span>,</span><br><span class="line">      <span class="attr">highlightLineColor</span>: <span class="string">&quot;#cccccc&quot;</span>,</span><br><span class="line">      <span class="attr">spotRadius</span>: ,</span><br><span class="line">      <span class="attr">chartRangeMin</span>:</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>jquery.validate.js用途：表单验证插件<br>用法：添加DOM元素自定义属性(具体内容见官方API)<br>传送门：jqueryvalidation.org<br>例:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">(1)required:true 必输字段 (2)remote:&quot;check.php&quot;</span><br><span class="line">使用ajax方法调用check.php验证输入值 (3)email:true 必须输入正确格式的电子邮件</span><br><span class="line">(4)url:true 必须输入正确格式的网址 (5)date:true 必须输入正确格式的日期</span><br><span class="line">(6)dateISO:true 必须输入正确格式的日期(ISO)，例如：2009-06-23，1998/01/22</span><br><span class="line">只验证格式，不验证有效性 (7)number:true 必须输入合法的数字(负数，小数)</span><br><span class="line">(8)digits:true 必须输入整数 (9)creditcard: 必须输入合法的信用卡号</span><br><span class="line">(10)equalTo:&quot;#field&quot; 输入值必须和#field相同 (11)accept:</span><br><span class="line">输入拥有合法后缀名的字符串（上传文件的后缀） (12)maxlength:5</span><br><span class="line">输入长度最多是5的字符串(汉字算一个字符) (13)minlength:10</span><br><span class="line">输入长度最小是10的字符串(汉字算一个字符) (14)rangelength:[5,10] 输入长度必须介于</span><br><span class="line">5 和 10 之间的字符串&quot;)(汉字算一个字符) (15)range:[5,10] 输入值必须介于 5 和 10</span><br><span class="line">之间 (16)max:5 输入值不能大于5 (17)min:10 输入值不能小于10</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>Vern Zhang
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    <a href="https://tkvern.com/20151210/Gulp%E6%9E%84%E5%BB%BA%E5%AE%9E%E4%BE%8B/" title="Gulp构建实例">https://tkvern.com/20151210/Gulp构建实例/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+        
+
+  <div class="followme">
+    <p>Welcome to my other publishing channels</p>
+
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+        </div>
+    </div>
+  </div>
+
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/20150819/autostrap/" rel="prev" title="基于原生JS移动端响应式解决方案——AUTOSTRAP">
+      <i class="fa fa-chevron-left"></i> 基于原生JS移动端响应式解决方案——AUTOSTRAP
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/20160218/%E4%B8%83%E7%89%9B%E4%BA%91%E5%AD%98%E5%82%A8%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B(Ruby-on-Rails-+-JavaScript)/" rel="next" title="七牛云存储使用教程(Ruby-on-Rails-+-JavaScript)">
+      七牛云存储使用教程(Ruby-on-Rails-+-JavaScript) <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Vern Zhang</p>
+  <div class="site-description" itemprop="description">Developer & Designer. Believe what you believe, and stick to what you insist on.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">76</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+  </nav>
+</div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2026</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Vern Zhang</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  <script src="//cdn.jsdelivr.net/npm/quicklink@1/dist/quicklink.umd.js"></script>
+  <script>
+      window.addEventListener('load', () => {
+      quicklink({
+        timeout : 3000,
+        priority: true,
+        ignores : [uri => uri.includes('#'),uri => uri === 'https://tkvern.com/20151210/Gulp%E6%9E%84%E5%BB%BA%E5%AE%9E%E4%BE%8B/',]
+      });
+      });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico">
+  <link rel="mask-icon" href="/images/favicon.ico" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"tkvern.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":5},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <link rel="canonical" href="https://tkvern.com/20160320/wysiwyg-rails-%E7%BC%96%E8%BE%91%E5%99%A8%E6%94%AF%E6%8F%B4%E4%B8%83%E7%89%9B%E4%BA%91%E5%AD%98%E5%82%A8/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <meta property="og:title" content="wysiwyg-rails-编辑器支援七牛云存储">
+  <meta property="og:description" content="Developer & Designer. Believe what you believe, and stick to what you insist on.">
+  <meta property="og:image" content="/images/avatar.gif">
+  <meta property="og:url" content="https://tkvern.com/20160320/wysiwyg-rails-%E7%BC%96%E8%BE%91%E5%99%A8%E6%94%AF%E6%8F%B4%E4%B8%83%E7%89%9B%E4%BA%91%E5%AD%98%E5%82%A8/">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Vern Blog">
+
+
+  <meta name="weixin:title" content="wysiwyg-rails-编辑器支援七牛云存储">
+  <meta name="weixin:description" content="Developer & Designer. Believe what you believe, and stick to what you insist on.">
+  <meta name="weixin:image" content="/images/avatar.gif">
+
+  <title>wysiwyg-rails-编辑器支援七牛云存储 | Vern Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="Vern Blog" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Vern Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">76</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+  <a href="https://github.com/verncake" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://tkvern.com/20160320/wysiwyg-rails-%E7%BC%96%E8%BE%91%E5%99%A8%E6%94%AF%E6%8F%B4%E4%B8%83%E7%89%9B%E4%BA%91%E5%AD%98%E5%82%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Vern Zhang">
+      <meta itemprop="description" content="Developer & Designer. Believe what you believe, and stick to what you insist on.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Vern Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          wysiwyg-rails-编辑器支援七牛云存储
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2016-03-20 02:20:00" itemprop="dateCreated datePublished" datetime="2016-03-20T02:20:00+08:00">2016-03-20</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2026-03-09 21:52:28" itemprop="dateModified" datetime="2026-03-09T21:52:28+08:00">2026-03-09</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Ruby-on-Rails/" itemprop="url" rel="index"><span itemprop="name">Ruby-on-Rails/</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>wysiwyg-rails-qiniu 是基于 wysiwyg-rails制作, 上传的资源直接支持七牛云存储<br>在使用该gem包前,你得会使用七牛云存储<br>传送门: Rails 进阶—— 云存储实战</p>
+<span id="more"></span>
+
+<p>安装添加下面代码到你的 Gemfile:</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">gem <span class="string">&quot;wysiwyg-rails-qiniu&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>然后运行 bundle install.</p>
+<p>将资源文件加入到你的 assets目录在你的 application.css 文件中, 引入下列文件:</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> *= require froala_editor.min.css</span></span><br><span class="line"><span class="comment"> *= require froala_style.min.css</span></span><br><span class="line"><span class="comment"> *= require font-awesome</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
+
+<p>如果你想使用黑色主题, 你可以加入 themes&#x2F;dark.min.css 到application.css文件中.</p>
+<p>在你的 application.js, 引入以下文件:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//= require froala_editor.min.js</span></span><br><span class="line"><span class="comment">//</span></span><br></pre></td></tr></table></figure>
+
+<p>如果你想使用更多功能插件 Available Plugins, 你应该将下面的这些文件加入的 application.js 和 application.css.<br>其中support_qiniu.min.js是必须要引入的,否则无法使用七牛云存储</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Include other plugins.</span></span><br><span class="line"><span class="comment">//= require plugins/support_qiniu.min.js</span></span><br><span class="line"><span class="comment">//= require plugins/align.min.js</span></span><br><span class="line"><span class="comment">//= require plugins/char_counter.min.js</span></span><br><span class="line"><span class="comment">//= require plugins/code_beautifier.min.js</span></span><br><span class="line"><span class="comment">//= require plugins/code_view.min.js</span></span><br><span class="line"><span class="comment">//= require plugins/colors.min.js</span></span><br><span class="line"><span class="comment">//= require plugins/emoticons.min.js</span></span><br><span class="line"><span class="comment">//= require plugins/entities.min.js</span></span><br><span class="line"><span class="comment">//= require plugins/file.min.js</span></span><br><span class="line"><span class="comment">//= require plugins/font_family.min.js</span></span><br><span class="line"><span class="comment">//= require plugins/font_size.min.js</span></span><br><span class="line"><span class="comment">//= require plugins/fullscreen.min.js</span></span><br><span class="line"><span class="comment">//= require plugins/image.min.js</span></span><br><span class="line"><span class="comment">//= require plugins/image_manager.min.js</span></span><br><span class="line"><span class="comment">//= require plugins/inline_style.min.js</span></span><br><span class="line"><span class="comment">//= require plugins/line_breaker.min.js</span></span><br><span class="line"><span class="comment">//= require plugins/link.min.js</span></span><br><span class="line"><span class="comment">//= require plugins/lists.min.js</span></span><br><span class="line"><span class="comment">//= require plugins/paragraph_format.min.js</span></span><br><span class="line"><span class="comment">//= require plugins/paragraph_style.min.js</span></span><br><span class="line"><span class="comment">//= require plugins/quick_insert.min.js</span></span><br><span class="line"><span class="comment">//= require plugins/quote.min.js</span></span><br><span class="line"><span class="comment">//= require plugins/save.min.js</span></span><br><span class="line"><span class="comment">//= require plugins/table.min.js</span></span><br><span class="line"><span class="comment">//= require plugins/url.min.js</span></span><br><span class="line"><span class="comment">//= require plugins/video.min.js</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> *= require plugins/char_counter.min.css</span></span><br><span class="line"><span class="comment"> *= require plugins/code_view.min.css</span></span><br><span class="line"><span class="comment"> *= require plugins/colors.min.css</span></span><br><span class="line"><span class="comment"> *= require plugins/emoticons.min.css</span></span><br><span class="line"><span class="comment"> *= require plugins/file.min.css</span></span><br><span class="line"><span class="comment"> *= require plugins/fullscreen.min.css</span></span><br><span class="line"><span class="comment"> *= require plugins/image_manager.min.css</span></span><br><span class="line"><span class="comment"> *= require plugins/image.min.css</span></span><br><span class="line"><span class="comment"> *= require plugins/line_breaker.min.css</span></span><br><span class="line"><span class="comment"> *= require plugins/quick_insert.min.css</span></span><br><span class="line"><span class="comment"> *= require plugins/table.min.css</span></span><br><span class="line"><span class="comment"> *= require plugins/video.min.css</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
+
+<p>同样的,如果你要使用中文语言包,请加入响应的js</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Include Language if needed</span></span><br><span class="line"><span class="comment">//= require languages/zh_cn.js</span></span><br></pre></td></tr></table></figure>
+
+<p>到目前位置你已经配置好编辑的基本资源,你需要重启rails服务器</p>
+<p>初始化编辑器详细文档请参见作者官网,提供了初始化代码 Froala WYSIWYG Editor official documentation.</p>
+<p>这里提供部分示例代码, 在使用下面代码之前你应该需要知道如何生成七牛上传凭证</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">$(<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">  $(<span class="string">&#x27;#edit&#x27;</span>).<span class="title function_">froalaEditor</span>(&#123;</span><br><span class="line">    <span class="attr">language</span>: <span class="string">&quot;zh_cn&quot;</span>,</span><br><span class="line">    <span class="attr">width</span>: ,</span><br><span class="line">    <span class="attr">heightMin</span>: ,</span><br><span class="line">    <span class="attr">heightMax</span>: ,</span><br><span class="line">    <span class="attr">requestWithCORS</span>: <span class="literal">false</span>,</span><br><span class="line"></span><br><span class="line">    <span class="comment">//图片上传配置(必须)</span></span><br><span class="line">    <span class="attr">imageUploadDomain</span>: <span class="string">&quot;&lt;%= Rails.application.config.qiniu_domain %&gt;&quot;</span>,    <span class="comment">//七牛云存储空间域名地址</span></span><br><span class="line">    <span class="attr">imageUploadParam</span>: <span class="string">&#x27;file&#x27;</span>,</span><br><span class="line">    <span class="attr">imageUploadURL</span>: <span class="string">&#x27;http://upload.qiniu.com&#x27;</span>,                            <span class="comment">//七牛上传服务器, 如果是海外服务器为 http://up.qiniu.com</span></span><br><span class="line">    <span class="attr">imageUploadParams</span>: &#123; <span class="attr">token</span>: <span class="string">&#x27;&lt;%= @uptoken %&gt;&#x27;</span>&#125;,                       <span class="comment">//上传凭证, 详细规则查看七牛官方文档</span></span><br><span class="line">    <span class="attr">imageUploadMethod</span>: <span class="string">&#x27;POST&#x27;</span>,</span><br><span class="line">    <span class="attr">imageMaxSize</span>:  *  * ,</span><br><span class="line">    <span class="attr">imageAllowedTypes</span>: [<span class="string">&#x27;jpeg&#x27;</span>, <span class="string">&#x27;jpg&#x27;</span>, <span class="string">&#x27;png&#x27;</span>],</span><br><span class="line"></span><br><span class="line">    <span class="comment">//文件上传配置(必须)</span></span><br><span class="line">    <span class="attr">fileUploadDomain</span>: <span class="string">&quot;&lt;%= Rails.application.config.qiniu_domain %&gt;&quot;</span>,     <span class="comment">//七牛云存储空间域名地址</span></span><br><span class="line">    <span class="attr">fileUploadParam</span>: <span class="string">&#x27;file&#x27;</span>,</span><br><span class="line">    <span class="attr">fileUploadURL</span>: <span class="string">&#x27;http://upload.qiniu.com&#x27;</span>,                             <span class="comment">//同上</span></span><br><span class="line">    <span class="attr">fileUploadParams</span>: &#123; <span class="attr">token</span>: <span class="string">&#x27;&lt;%= @uptoken %&gt;&#x27;</span>&#125;,                        <span class="comment">//同上</span></span><br><span class="line">    <span class="attr">fileUploadMethod</span>: <span class="string">&#x27;POST&#x27;</span>,</span><br><span class="line">    <span class="attr">fileMaxSize</span>:  *  * ,</span><br><span class="line">    <span class="attr">fileAllowedTypes</span>: [<span class="string">&#x27;*&#x27;</span>]</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>配置代码视图使用代码视图加高亮效果,可加入以下代码,也可以使用codemirror-rails这个gem包</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span></span></span><br><span class="line"><span class="tag">  <span class="attr">href</span>=<span class="string">&quot;//cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/codemirror.min.css&quot;</span></span></span><br><span class="line"><span class="tag">  <span class="attr">media</span>=<span class="string">&quot;screen&quot;</span></span></span><br><span class="line"><span class="tag">  <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span></span></span><br><span class="line"><span class="tag">/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;//cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/codemirror.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;//cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/mode/xml/xml.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>许可wyg-rails项目是在麻省理工学院的许可。然而,为了使用Froala WYSIWYG HTML编辑器插件你应该购买一个许可证。<br>下面是许可链接,请支持源作者<br>Froala Editor has 3 different licenses.<br>For details please see License Agreement.</p>
+<p>致谢感谢Froala项目作者的贡献, 我在项目的原基础上增加了对七牛云存储的支持.<br>如果你需要使用其它的云存储平台,请使用wysiwyg-rails进行自定义配置</p>
+
+    </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>Vern Zhang
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    <a href="https://tkvern.com/20160320/wysiwyg-rails-%E7%BC%96%E8%BE%91%E5%99%A8%E6%94%AF%E6%8F%B4%E4%B8%83%E7%89%9B%E4%BA%91%E5%AD%98%E5%82%A8/" title="wysiwyg-rails-编辑器支援七牛云存储">https://tkvern.com/20160320/wysiwyg-rails-编辑器支援七牛云存储/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+        
+
+  <div class="followme">
+    <p>Welcome to my other publishing channels</p>
+
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+        </div>
+    </div>
+  </div>
+
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/20160218/%E4%B8%83%E7%89%9B%E4%BA%91%E5%AD%98%E5%82%A8%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B(Ruby-on-Rails-+-JavaScript)/" rel="prev" title="七牛云存储使用教程(Ruby-on-Rails-+-JavaScript)">
+      <i class="fa fa-chevron-left"></i> 七牛云存储使用教程(Ruby-on-Rails-+-JavaScript)
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/20160321/%E8%BF%9B%E5%87%BBDrupal-1/" rel="next" title="进击Drupal-1">
+      进击Drupal-1 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Vern Zhang</p>
+  <div class="site-description" itemprop="description">Developer & Designer. Believe what you believe, and stick to what you insist on.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">76</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+  </nav>
+</div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2026</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Vern Zhang</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  <script src="//cdn.jsdelivr.net/npm/quicklink@1/dist/quicklink.umd.js"></script>
+  <script>
+      window.addEventListener('load', () => {
+      quicklink({
+        timeout : 3000,
+        priority: true,
+        ignores : [uri => uri.includes('#'),uri => uri === 'https://tkvern.com/20160320/wysiwyg-rails-%E7%BC%96%E8%BE%91%E5%99%A8%E6%94%AF%E6%8F%B4%E4%B8%83%E7%89%9B%E4%BA%91%E5%AD%98%E5%82%A8/',]
+      });
+      });
+  </script>
+
+</body>
+</html>
