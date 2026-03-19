@@ -6,7 +6,7 @@
   <link href="https://tkvern.com/atom.xml" rel="self"/>
   
   <link href="https://tkvern.com/"/>
-  <updated>2026-03-09T13:44:31.185Z</updated>
+  <updated>2026-03-19T05:12:27.350Z</updated>
   <id>https://tkvern.com/</id>
   
   <author>
@@ -17,11 +17,28 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>我的龙虾自戕了</title>
+    <link href="https://tkvern.com/20260319/%E6%88%91%E7%9A%84%E9%BE%99%E8%99%BE%E8%87%AA%E6%88%95%E4%BA%86/"/>
+    <id>https://tkvern.com/20260319/%E6%88%91%E7%9A%84%E9%BE%99%E8%99%BE%E8%87%AA%E6%88%95%E4%BA%86/</id>
+    <published>2026-03-18T16:00:00.000Z</published>
+    <updated>2026-03-19T05:12:27.350Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;世间大抵是无趣的，连龙虾也不肯活了&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="技术" scheme="https://tkvern.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>从零开始构建 AI Agent 公司：一个技术创业者的进化之路</title>
     <link href="https://tkvern.com/20260301/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%9E%84%E5%BB%BAAI-Agent%E5%85%AC%E5%8F%B8/"/>
     <id>https://tkvern.com/20260301/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%9E%84%E5%BB%BAAI-Agent%E5%85%AC%E5%8F%B8/</id>
     <published>2026-03-01T12:48:00.000Z</published>
-    <updated>2026-03-09T13:44:31.185Z</updated>
+    <updated>2026-03-09T15:01:10.174Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;这篇文章不是 OpenClaw 的安装教程，也不是 AI Agent 的入门指南。我默认你已经装好了 OpenClaw，知道怎么让它调用工具、浏览网页、操作文件。如果你还没做到这一步，先去把基础打牢。&lt;/p&gt;</summary>
@@ -718,14 +735,14 @@
     <link href="https://tkvern.com/20140426/%E6%B8%85%E6%99%A8%E9%A3%8E%E5%B2%B3%E9%BA%93%E5%8C%97/"/>
     <id>https://tkvern.com/20140426/%E6%B8%85%E6%99%A8%E9%A3%8E%E5%B2%B3%E9%BA%93%E5%8C%97/</id>
     <published>2014-04-25T18:20:00.000Z</published>
-    <updated>2026-03-09T13:52:28.022Z</updated>
+    <updated>2026-03-19T05:13:07.454Z</updated>
     
     
     <summary type="html">&lt;p&gt;雨雾天气登上岳麓山顶，忆容若，《长相思》，作此诗于长沙，2014-04-26 10:00 笔&lt;/p&gt;</summary>
     
     
     
-    <category term="诗词作品/" scheme="https://tkvern.com/categories/%E8%AF%97%E8%AF%8D%E4%BD%9C%E5%93%81/"/>
+    <category term="诗词作品" scheme="https://tkvern.com/categories/%E8%AF%97%E8%AF%8D%E4%BD%9C%E5%93%81/"/>
     
     
   </entry>
@@ -735,14 +752,14 @@
     <link href="https://tkvern.com/20130301/%E6%B7%A1%E6%B7%A1%E7%9A%84/"/>
     <id>https://tkvern.com/20130301/%E6%B7%A1%E6%B7%A1%E7%9A%84/</id>
     <published>2013-02-28T18:20:00.000Z</published>
-    <updated>2026-03-09T13:52:28.022Z</updated>
+    <updated>2026-03-19T05:13:07.526Z</updated>
     
     
     <summary type="html">&lt;p&gt;我们，简简单单，静静的、淡淡的就好，作于永州，2013-03-02 06:57 笔&lt;/p&gt;</summary>
     
     
     
-    <category term="诗词作品/" scheme="https://tkvern.com/categories/%E8%AF%97%E8%AF%8D%E4%BD%9C%E5%93%81/"/>
+    <category term="诗词作品" scheme="https://tkvern.com/categories/%E8%AF%97%E8%AF%8D%E4%BD%9C%E5%93%81/"/>
     
     
   </entry>
@@ -752,14 +769,14 @@
     <link href="https://tkvern.com/20120725/%E9%9B%A8%E5%A4%9C/"/>
     <id>https://tkvern.com/20120725/%E9%9B%A8%E5%A4%9C/</id>
     <published>2012-07-24T18:20:00.000Z</published>
-    <updated>2026-03-09T13:52:28.021Z</updated>
+    <updated>2026-03-19T05:13:07.526Z</updated>
     
     
     <summary type="html">&lt;p&gt;雨夜，独行，作于永州，2012-07-25 19:41 笔&lt;/p&gt;</summary>
     
     
     
-    <category term="诗词作品/" scheme="https://tkvern.com/categories/%E8%AF%97%E8%AF%8D%E4%BD%9C%E5%93%81/"/>
+    <category term="诗词作品" scheme="https://tkvern.com/categories/%E8%AF%97%E8%AF%8D%E4%BD%9C%E5%93%81/"/>
     
     
   </entry>
@@ -769,14 +786,14 @@
     <link href="https://tkvern.com/20120618/%E6%80%80%E5%BF%B5/"/>
     <id>https://tkvern.com/20120618/%E6%80%80%E5%BF%B5/</id>
     <published>2012-06-17T18:20:00.000Z</published>
-    <updated>2026-03-09T13:52:28.021Z</updated>
+    <updated>2026-03-19T05:13:07.526Z</updated>
     
     
     <summary type="html">&lt;p&gt;《怀念》带着怀念，在静静怀念，作于永州，2012-06-19 00:03 笔&lt;/p&gt;</summary>
     
     
     
-    <category term="诗词作品/" scheme="https://tkvern.com/categories/%E8%AF%97%E8%AF%8D%E4%BD%9C%E5%93%81/"/>
+    <category term="诗词作品" scheme="https://tkvern.com/categories/%E8%AF%97%E8%AF%8D%E4%BD%9C%E5%93%81/"/>
     
     
   </entry>
@@ -786,14 +803,14 @@
     <link href="https://tkvern.com/20120605/%E9%85%92%E9%A6%86/"/>
     <id>https://tkvern.com/20120605/%E9%85%92%E9%A6%86/</id>
     <published>2012-06-04T18:20:00.000Z</published>
-    <updated>2026-03-09T13:52:28.021Z</updated>
+    <updated>2026-03-19T05:13:07.963Z</updated>
     
     
     <summary type="html">&lt;p&gt;酒馆，少了点什么，作于永州，2012-06-05 08:42 笔&lt;/p&gt;</summary>
     
     
     
-    <category term="诗词作品/" scheme="https://tkvern.com/categories/%E8%AF%97%E8%AF%8D%E4%BD%9C%E5%93%81/"/>
+    <category term="诗词作品" scheme="https://tkvern.com/categories/%E8%AF%97%E8%AF%8D%E4%BD%9C%E5%93%81/"/>
     
     
   </entry>
@@ -803,14 +820,14 @@
     <link href="https://tkvern.com/20120603/%E5%A4%9C%E9%86%89%E4%BA%86/"/>
     <id>https://tkvern.com/20120603/%E5%A4%9C%E9%86%89%E4%BA%86/</id>
     <published>2012-06-02T18:20:00.000Z</published>
-    <updated>2026-03-09T13:52:28.020Z</updated>
+    <updated>2026-03-19T05:13:07.448Z</updated>
     
     
     <summary type="html">&lt;p&gt;夜醉了，作于永州，2012-06-04 03:38 笔&lt;/p&gt;</summary>
     
     
     
-    <category term="诗词作品/" scheme="https://tkvern.com/categories/%E8%AF%97%E8%AF%8D%E4%BD%9C%E5%93%81/"/>
+    <category term="诗词作品" scheme="https://tkvern.com/categories/%E8%AF%97%E8%AF%8D%E4%BD%9C%E5%93%81/"/>
     
     
   </entry>
@@ -820,14 +837,14 @@
     <link href="https://tkvern.com/20120531/%E5%86%8D%E8%A7%81%E4%BA%86/"/>
     <id>https://tkvern.com/20120531/%E5%86%8D%E8%A7%81%E4%BA%86/</id>
     <published>2012-05-30T18:20:00.000Z</published>
-    <updated>2026-03-09T13:52:28.020Z</updated>
+    <updated>2026-03-19T05:13:08.015Z</updated>
     
     
     <summary type="html">&lt;p&gt;再见，真的说了再见了，作于永州，2012-05-31 22:43 笔&lt;/p&gt;</summary>
     
     
     
-    <category term="诗词作品/" scheme="https://tkvern.com/categories/%E8%AF%97%E8%AF%8D%E4%BD%9C%E5%93%81/"/>
+    <category term="诗词作品" scheme="https://tkvern.com/categories/%E8%AF%97%E8%AF%8D%E4%BD%9C%E5%93%81/"/>
     
     
   </entry>
@@ -837,14 +854,14 @@
     <link href="https://tkvern.com/20120422/%E6%97%A0%E5%8A%9B/"/>
     <id>https://tkvern.com/20120422/%E6%97%A0%E5%8A%9B/</id>
     <published>2012-04-21T18:20:00.000Z</published>
-    <updated>2026-03-09T13:52:28.019Z</updated>
+    <updated>2026-03-19T05:13:07.509Z</updated>
     
     
     <summary type="html">&lt;p&gt;瞎写的一些文字，作于永州，2012-04-22 14:58 笔&lt;/p&gt;</summary>
     
     
     
-    <category term="诗词作品/" scheme="https://tkvern.com/categories/%E8%AF%97%E8%AF%8D%E4%BD%9C%E5%93%81/"/>
+    <category term="诗词作品" scheme="https://tkvern.com/categories/%E8%AF%97%E8%AF%8D%E4%BD%9C%E5%93%81/"/>
     
     
   </entry>
@@ -854,14 +871,14 @@
     <link href="https://tkvern.com/20120422/%E6%98%A5%E5%A4%8F%E7%A7%8B%E5%86%AC/"/>
     <id>https://tkvern.com/20120422/%E6%98%A5%E5%A4%8F%E7%A7%8B%E5%86%AC/</id>
     <published>2012-04-21T18:20:00.000Z</published>
-    <updated>2026-03-09T13:52:28.019Z</updated>
+    <updated>2026-03-19T05:13:07.963Z</updated>
     
     
     <summary type="html">&lt;p&gt;一点点感悟，春夏秋冬，作此诗于永州，2012-04-22 23:24 笔&lt;/p&gt;</summary>
     
     
     
-    <category term="诗词作品/" scheme="https://tkvern.com/categories/%E8%AF%97%E8%AF%8D%E4%BD%9C%E5%93%81/"/>
+    <category term="诗词作品" scheme="https://tkvern.com/categories/%E8%AF%97%E8%AF%8D%E4%BD%9C%E5%93%81/"/>
     
     
   </entry>
@@ -871,14 +888,14 @@
     <link href="https://tkvern.com/20120417/%E5%A3%B0%E5%A3%B0%E6%85%A2%E5%88%9D%E6%98%A5/"/>
     <id>https://tkvern.com/20120417/%E5%A3%B0%E5%A3%B0%E6%85%A2%E5%88%9D%E6%98%A5/</id>
     <published>2012-04-16T18:20:00.000Z</published>
-    <updated>2026-03-09T13:52:28.019Z</updated>
+    <updated>2026-03-19T05:13:08.015Z</updated>
     
     
     <summary type="html">&lt;p&gt;循李清照之词《声声慢·寻寻觅觅》，写初春，诗。情在心间，作此诗于永州，2012-04-17 17:12 笔&lt;/p&gt;</summary>
     
     
     
-    <category term="诗词作品/" scheme="https://tkvern.com/categories/%E8%AF%97%E8%AF%8D%E4%BD%9C%E5%93%81/"/>
+    <category term="诗词作品" scheme="https://tkvern.com/categories/%E8%AF%97%E8%AF%8D%E4%BD%9C%E5%93%81/"/>
     
     
   </entry>
@@ -888,14 +905,14 @@
     <link href="https://tkvern.com/20120415/%E6%97%A0%E6%A0%87%E9%A2%98/"/>
     <id>https://tkvern.com/20120415/%E6%97%A0%E6%A0%87%E9%A2%98/</id>
     <published>2012-04-14T18:20:00.000Z</published>
-    <updated>2026-03-09T13:52:28.019Z</updated>
+    <updated>2026-03-19T05:13:07.554Z</updated>
     
     
     <summary type="html">&lt;p&gt;用《无标题》来诠释。爱已走远，作于永州，2012-04-15 10:30 笔&lt;/p&gt;</summary>
     
     
     
-    <category term="诗词作品/" scheme="https://tkvern.com/categories/%E8%AF%97%E8%AF%8D%E4%BD%9C%E5%93%81/"/>
+    <category term="诗词作品" scheme="https://tkvern.com/categories/%E8%AF%97%E8%AF%8D%E4%BD%9C%E5%93%81/"/>
     
     
   </entry>
@@ -905,14 +922,14 @@
     <link href="https://tkvern.com/20120304/%E5%92%96%E5%95%A1%E8%89%B2/"/>
     <id>https://tkvern.com/20120304/%E5%92%96%E5%95%A1%E8%89%B2/</id>
     <published>2012-03-03T18:20:00.000Z</published>
-    <updated>2026-03-09T13:52:28.018Z</updated>
+    <updated>2026-03-19T05:13:07.992Z</updated>
     
     
     <summary type="html">&lt;p&gt;情侣。。对唱，作于永州，2012-03-04 11:13 笔&lt;/p&gt;</summary>
     
     
     
-    <category term="诗词作品/" scheme="https://tkvern.com/categories/%E8%AF%97%E8%AF%8D%E4%BD%9C%E5%93%81/"/>
+    <category term="诗词作品" scheme="https://tkvern.com/categories/%E8%AF%97%E8%AF%8D%E4%BD%9C%E5%93%81/"/>
     
     
   </entry>
@@ -922,14 +939,14 @@
     <link href="https://tkvern.com/20120301/%E5%A4%A9%E4%BD%BF%E6%8A%98%E7%BF%BC%E4%BA%86/"/>
     <id>https://tkvern.com/20120301/%E5%A4%A9%E4%BD%BF%E6%8A%98%E7%BF%BC%E4%BA%86/</id>
     <published>2012-02-29T18:20:00.000Z</published>
-    <updated>2026-03-09T13:52:28.018Z</updated>
+    <updated>2026-03-19T05:13:07.453Z</updated>
     
     
     <summary type="html">&lt;p&gt;练习。。《天使，折翼了》，作于永州，2012-03-01 14:52 笔&lt;/p&gt;</summary>
     
     
     
-    <category term="诗词作品/" scheme="https://tkvern.com/categories/%E8%AF%97%E8%AF%8D%E4%BD%9C%E5%93%81/"/>
+    <category term="诗词作品" scheme="https://tkvern.com/categories/%E8%AF%97%E8%AF%8D%E4%BD%9C%E5%93%81/"/>
     
     
   </entry>
@@ -939,14 +956,14 @@
     <link href="https://tkvern.com/20120301/%E7%AE%80%E5%8D%95%E5%B0%B1%E5%A5%BD/"/>
     <id>https://tkvern.com/20120301/%E7%AE%80%E5%8D%95%E5%B0%B1%E5%A5%BD/</id>
     <published>2012-02-29T18:20:00.000Z</published>
-    <updated>2026-03-09T13:52:28.018Z</updated>
+    <updated>2026-03-19T05:13:07.526Z</updated>
     
     
     <summary type="html">&lt;p&gt;练习曲，作于永州，2012-03-01 14:52 笔&lt;/p&gt;</summary>
     
     
     
-    <category term="诗词作品/" scheme="https://tkvern.com/categories/%E8%AF%97%E8%AF%8D%E4%BD%9C%E5%93%81/"/>
+    <category term="诗词作品" scheme="https://tkvern.com/categories/%E8%AF%97%E8%AF%8D%E4%BD%9C%E5%93%81/"/>
     
     
   </entry>
@@ -956,14 +973,14 @@
     <link href="https://tkvern.com/20120227/%E6%80%8E%E4%B9%88%E8%83%BD%E6%94%BE%E4%B8%8B/"/>
     <id>https://tkvern.com/20120227/%E6%80%8E%E4%B9%88%E8%83%BD%E6%94%BE%E4%B8%8B/</id>
     <published>2012-02-26T18:20:00.000Z</published>
-    <updated>2026-03-09T13:52:28.017Z</updated>
+    <updated>2026-03-19T05:13:07.491Z</updated>
     
     
     <summary type="html">&lt;p&gt;放下三部曲，《怎么能放下》最后一部了，作于永州，2012-02-27 20:12 笔&lt;/p&gt;</summary>
     
     
     
-    <category term="诗词作品/" scheme="https://tkvern.com/categories/%E8%AF%97%E8%AF%8D%E4%BD%9C%E5%93%81/"/>
+    <category term="诗词作品" scheme="https://tkvern.com/categories/%E8%AF%97%E8%AF%8D%E4%BD%9C%E5%93%81/"/>
     
     
   </entry>
@@ -973,14 +990,14 @@
     <link href="https://tkvern.com/20120227/%E6%94%BE%E4%B8%8B/"/>
     <id>https://tkvern.com/20120227/%E6%94%BE%E4%B8%8B/</id>
     <published>2012-02-26T18:20:00.000Z</published>
-    <updated>2026-03-09T13:52:28.017Z</updated>
+    <updated>2026-03-19T05:13:07.965Z</updated>
     
     
     <summary type="html">&lt;p&gt;放下三部曲之第二部《放下》，作于永州，2012-02-27 10:15 笔&lt;/p&gt;</summary>
     
     
     
-    <category term="诗词作品/" scheme="https://tkvern.com/categories/%E8%AF%97%E8%AF%8D%E4%BD%9C%E5%93%81/"/>
+    <category term="诗词作品" scheme="https://tkvern.com/categories/%E8%AF%97%E8%AF%8D%E4%BD%9C%E5%93%81/"/>
     
     
   </entry>
@@ -990,14 +1007,14 @@
     <link href="https://tkvern.com/20120226/%E5%9C%A8%E8%BF%99%E9%87%8C/"/>
     <id>https://tkvern.com/20120226/%E5%9C%A8%E8%BF%99%E9%87%8C/</id>
     <published>2012-02-25T18:20:00.000Z</published>
-    <updated>2026-03-09T13:52:28.016Z</updated>
+    <updated>2026-03-19T05:13:07.963Z</updated>
     
     
     <summary type="html">&lt;p&gt;在这里，作于永州，2012-2-26 18:30 笔&lt;/p&gt;</summary>
     
     
     
-    <category term="诗词作品/" scheme="https://tkvern.com/categories/%E8%AF%97%E8%AF%8D%E4%BD%9C%E5%93%81/"/>
+    <category term="诗词作品" scheme="https://tkvern.com/categories/%E8%AF%97%E8%AF%8D%E4%BD%9C%E5%93%81/"/>
     
     
   </entry>
@@ -1007,14 +1024,14 @@
     <link href="https://tkvern.com/20120226/%E7%AC%94%E6%84%8F%E4%B9%A6%E6%83%85/"/>
     <id>https://tkvern.com/20120226/%E7%AC%94%E6%84%8F%E4%B9%A6%E6%83%85/</id>
     <published>2012-02-25T18:20:00.000Z</published>
-    <updated>2026-03-09T13:52:28.016Z</updated>
+    <updated>2026-03-19T05:13:07.565Z</updated>
     
     
     <summary type="html">&lt;p&gt;笔意书情（初稿），作于永州&lt;/p&gt;</summary>
     
     
     
-    <category term="诗词作品/" scheme="https://tkvern.com/categories/%E8%AF%97%E8%AF%8D%E4%BD%9C%E5%93%81/"/>
+    <category term="诗词作品" scheme="https://tkvern.com/categories/%E8%AF%97%E8%AF%8D%E4%BD%9C%E5%93%81/"/>
     
     
   </entry>
@@ -1024,14 +1041,14 @@
     <link href="https://tkvern.com/20120226/%E8%87%AA%E5%BC%B9%E4%B8%80%E6%9B%B2/"/>
     <id>https://tkvern.com/20120226/%E8%87%AA%E5%BC%B9%E4%B8%80%E6%9B%B2/</id>
     <published>2012-02-25T18:20:00.000Z</published>
-    <updated>2026-03-09T13:52:28.016Z</updated>
+    <updated>2026-03-19T05:13:07.584Z</updated>
     
     
     <summary type="html">&lt;p&gt;自弹一曲，作于永州&lt;/p&gt;</summary>
     
     
     
-    <category term="诗词作品/" scheme="https://tkvern.com/categories/%E8%AF%97%E8%AF%8D%E4%BD%9C%E5%93%81/"/>
+    <category term="诗词作品" scheme="https://tkvern.com/categories/%E8%AF%97%E8%AF%8D%E4%BD%9C%E5%93%81/"/>
     
     
   </entry>
@@ -1041,14 +1058,14 @@
     <link href="https://tkvern.com/20120225/%E9%A4%90%E5%8E%85/"/>
     <id>https://tkvern.com/20120225/%E9%A4%90%E5%8E%85/</id>
     <published>2012-02-24T18:20:00.000Z</published>
-    <updated>2026-03-09T13:52:28.016Z</updated>
+    <updated>2026-03-19T05:13:08.015Z</updated>
     
     
     <summary type="html">&lt;p&gt;餐厅，作于永州&lt;/p&gt;</summary>
     
     
     
-    <category term="诗词作品/" scheme="https://tkvern.com/categories/%E8%AF%97%E8%AF%8D%E4%BD%9C%E5%93%81/"/>
+    <category term="诗词作品" scheme="https://tkvern.com/categories/%E8%AF%97%E8%AF%8D%E4%BD%9C%E5%93%81/"/>
     
     
   </entry>
@@ -1058,14 +1075,14 @@
     <link href="https://tkvern.com/20120123/%E4%B8%80%E9%A6%96%E7%AE%80%E5%8D%95%E7%9A%84%E6%AD%8C/"/>
     <id>https://tkvern.com/20120123/%E4%B8%80%E9%A6%96%E7%AE%80%E5%8D%95%E7%9A%84%E6%AD%8C/</id>
     <published>2012-01-22T18:20:00.000Z</published>
-    <updated>2026-03-09T13:52:28.012Z</updated>
+    <updated>2026-03-19T05:13:08.015Z</updated>
     
     
     <summary type="html">&lt;p&gt;一首简单的歌，作于永州&lt;/p&gt;</summary>
     
     
     
-    <category term="诗词作品/" scheme="https://tkvern.com/categories/%E8%AF%97%E8%AF%8D%E4%BD%9C%E5%93%81/"/>
+    <category term="诗词作品" scheme="https://tkvern.com/categories/%E8%AF%97%E8%AF%8D%E4%BD%9C%E5%93%81/"/>
     
     
   </entry>
@@ -1075,14 +1092,14 @@
     <link href="https://tkvern.com/20120123/%E4%B8%8D%E6%83%B3%E4%BD%A0%E9%9A%BE%E8%BF%87/"/>
     <id>https://tkvern.com/20120123/%E4%B8%8D%E6%83%B3%E4%BD%A0%E9%9A%BE%E8%BF%87/</id>
     <published>2012-01-22T18:20:00.000Z</published>
-    <updated>2026-03-09T13:52:28.012Z</updated>
+    <updated>2026-03-19T05:13:08.015Z</updated>
     
     
     <summary type="html">&lt;p&gt;不想你难过，作于永州&lt;/p&gt;</summary>
     
     
     
-    <category term="诗词作品/" scheme="https://tkvern.com/categories/%E8%AF%97%E8%AF%8D%E4%BD%9C%E5%93%81/"/>
+    <category term="诗词作品" scheme="https://tkvern.com/categories/%E8%AF%97%E8%AF%8D%E4%BD%9C%E5%93%81/"/>
     
     
   </entry>
@@ -1092,14 +1109,14 @@
     <link href="https://tkvern.com/20120123/%E5%86%99%E7%BB%99%E4%BD%A0/"/>
     <id>https://tkvern.com/20120123/%E5%86%99%E7%BB%99%E4%BD%A0/</id>
     <published>2012-01-22T18:20:00.000Z</published>
-    <updated>2026-03-09T13:52:28.013Z</updated>
+    <updated>2026-03-19T05:13:07.565Z</updated>
     
     
     <summary type="html">&lt;p&gt;写给你，作于永州&lt;/p&gt;</summary>
     
     
     
-    <category term="诗词作品/" scheme="https://tkvern.com/categories/%E8%AF%97%E8%AF%8D%E4%BD%9C%E5%93%81/"/>
+    <category term="诗词作品" scheme="https://tkvern.com/categories/%E8%AF%97%E8%AF%8D%E4%BD%9C%E5%93%81/"/>
     
     
   </entry>
@@ -1109,14 +1126,14 @@
     <link href="https://tkvern.com/20120123/%E5%BC%80%E5%9C%BA%E7%99%BD/"/>
     <id>https://tkvern.com/20120123/%E5%BC%80%E5%9C%BA%E7%99%BD/</id>
     <published>2012-01-22T18:20:00.000Z</published>
-    <updated>2026-03-09T13:52:28.013Z</updated>
+    <updated>2026-03-19T05:13:07.561Z</updated>
     
     
     <summary type="html">&lt;p&gt;开场白(初稿)，作于永州&lt;/p&gt;</summary>
     
     
     
-    <category term="诗词作品/" scheme="https://tkvern.com/categories/%E8%AF%97%E8%AF%8D%E4%BD%9C%E5%93%81/"/>
+    <category term="诗词作品" scheme="https://tkvern.com/categories/%E8%AF%97%E8%AF%8D%E4%BD%9C%E5%93%81/"/>
     
     
   </entry>
@@ -1126,14 +1143,14 @@
     <link href="https://tkvern.com/20120123/%E6%88%91%E5%81%9A%E4%B8%8D%E5%88%B0/"/>
     <id>https://tkvern.com/20120123/%E6%88%91%E5%81%9A%E4%B8%8D%E5%88%B0/</id>
     <published>2012-01-22T18:20:00.000Z</published>
-    <updated>2026-03-09T13:52:28.013Z</updated>
+    <updated>2026-03-19T05:13:07.526Z</updated>
     
     
     <summary type="html">&lt;p&gt;我做不到，作于永州&lt;/p&gt;</summary>
     
     
     
-    <category term="诗词作品/" scheme="https://tkvern.com/categories/%E8%AF%97%E8%AF%8D%E4%BD%9C%E5%93%81/"/>
+    <category term="诗词作品" scheme="https://tkvern.com/categories/%E8%AF%97%E8%AF%8D%E4%BD%9C%E5%93%81/"/>
     
     
   </entry>
@@ -1143,14 +1160,14 @@
     <link href="https://tkvern.com/20120123/%E6%94%BE%E4%B8%8D%E4%B8%8B/"/>
     <id>https://tkvern.com/20120123/%E6%94%BE%E4%B8%8D%E4%B8%8B/</id>
     <published>2012-01-22T18:20:00.000Z</published>
-    <updated>2026-03-09T13:52:28.014Z</updated>
+    <updated>2026-03-19T05:13:08.015Z</updated>
     
     
     <summary type="html">&lt;p&gt;放下三部曲，第一部《放不下》，作于永州&lt;/p&gt;</summary>
     
     
     
-    <category term="诗词作品/" scheme="https://tkvern.com/categories/%E8%AF%97%E8%AF%8D%E4%BD%9C%E5%93%81/"/>
+    <category term="诗词作品" scheme="https://tkvern.com/categories/%E8%AF%97%E8%AF%8D%E4%BD%9C%E5%93%81/"/>
     
     
   </entry>
@@ -1160,14 +1177,14 @@
     <link href="https://tkvern.com/20120123/%E6%9D%A5%E4%B8%8D%E5%8F%8A%E8%AF%B4%E7%88%B1%E4%BD%A0/"/>
     <id>https://tkvern.com/20120123/%E6%9D%A5%E4%B8%8D%E5%8F%8A%E8%AF%B4%E7%88%B1%E4%BD%A0/</id>
     <published>2012-01-22T18:20:00.000Z</published>
-    <updated>2026-03-09T13:52:28.014Z</updated>
+    <updated>2026-03-19T05:13:08.015Z</updated>
     
     
     <summary type="html">&lt;p&gt;来不及说爱你，作于永州&lt;/p&gt;</summary>
     
     
     
-    <category term="诗词作品/" scheme="https://tkvern.com/categories/%E8%AF%97%E8%AF%8D%E4%BD%9C%E5%93%81/"/>
+    <category term="诗词作品" scheme="https://tkvern.com/categories/%E8%AF%97%E8%AF%8D%E4%BD%9C%E5%93%81/"/>
     
     
   </entry>
@@ -1177,14 +1194,14 @@
     <link href="https://tkvern.com/20120123/%E6%A2%A6%E5%9B%9E%E7%BC%98%E6%96%AD/"/>
     <id>https://tkvern.com/20120123/%E6%A2%A6%E5%9B%9E%E7%BC%98%E6%96%AD/</id>
     <published>2012-01-22T18:20:00.000Z</published>
-    <updated>2026-03-09T13:52:28.015Z</updated>
+    <updated>2026-03-19T05:13:08.015Z</updated>
     
     
     <summary type="html">&lt;p&gt;梦回缘断(初稿)，作于永州&lt;/p&gt;</summary>
     
     
     
-    <category term="诗词作品/" scheme="https://tkvern.com/categories/%E8%AF%97%E8%AF%8D%E4%BD%9C%E5%93%81/"/>
+    <category term="诗词作品" scheme="https://tkvern.com/categories/%E8%AF%97%E8%AF%8D%E4%BD%9C%E5%93%81/"/>
     
     
   </entry>
@@ -1194,14 +1211,14 @@
     <link href="https://tkvern.com/20120123/%E7%90%B4%E9%94%AE%E7%9A%84%E6%B8%A9%E5%BA%A6/"/>
     <id>https://tkvern.com/20120123/%E7%90%B4%E9%94%AE%E7%9A%84%E6%B8%A9%E5%BA%A6/</id>
     <published>2012-01-22T18:20:00.000Z</published>
-    <updated>2026-03-09T13:52:28.015Z</updated>
+    <updated>2026-03-19T05:13:07.526Z</updated>
     
     
     <summary type="html">&lt;p&gt;琴键的温度，作于永州&lt;/p&gt;</summary>
     
     
     
-    <category term="诗词作品/" scheme="https://tkvern.com/categories/%E8%AF%97%E8%AF%8D%E4%BD%9C%E5%93%81/"/>
+    <category term="诗词作品" scheme="https://tkvern.com/categories/%E8%AF%97%E8%AF%8D%E4%BD%9C%E5%93%81/"/>
     
     
   </entry>
@@ -1211,14 +1228,14 @@
     <link href="https://tkvern.com/20120123/%E8%A7%86%E7%BA%BF/"/>
     <id>https://tkvern.com/20120123/%E8%A7%86%E7%BA%BF/</id>
     <published>2012-01-22T18:20:00.000Z</published>
-    <updated>2026-03-09T13:52:28.015Z</updated>
+    <updated>2026-03-19T05:13:07.554Z</updated>
     
     
     <summary type="html">&lt;p&gt;视线，作于永州&lt;/p&gt;</summary>
     
     
     
-    <category term="诗词作品/" scheme="https://tkvern.com/categories/%E8%AF%97%E8%AF%8D%E4%BD%9C%E5%93%81/"/>
+    <category term="诗词作品" scheme="https://tkvern.com/categories/%E8%AF%97%E8%AF%8D%E4%BD%9C%E5%93%81/"/>
     
     
   </entry>
@@ -1228,14 +1245,14 @@
     <link href="https://tkvern.com/20110802/%E4%B8%8B%E9%94%85/"/>
     <id>https://tkvern.com/20110802/%E4%B8%8B%E9%94%85/</id>
     <published>2011-08-01T18:20:00.000Z</published>
-    <updated>2026-03-09T13:52:28.011Z</updated>
+    <updated>2026-03-19T05:13:08.015Z</updated>
     
     
     <summary type="html">&lt;p&gt;随笔之作，打油诗，作于广州&lt;/p&gt;</summary>
     
     
     
-    <category term="诗词作品/" scheme="https://tkvern.com/categories/%E8%AF%97%E8%AF%8D%E4%BD%9C%E5%93%81/"/>
+    <category term="诗词作品" scheme="https://tkvern.com/categories/%E8%AF%97%E8%AF%8D%E4%BD%9C%E5%93%81/"/>
     
     
   </entry>
@@ -1245,14 +1262,14 @@
     <link href="https://tkvern.com/20110802/%E6%B1%9F%E7%95%94/"/>
     <id>https://tkvern.com/20110802/%E6%B1%9F%E7%95%94/</id>
     <published>2011-08-01T18:20:00.000Z</published>
-    <updated>2026-03-09T13:52:28.011Z</updated>
+    <updated>2026-03-19T05:13:07.482Z</updated>
     
     
     <summary type="html">&lt;p&gt;江畔，作于广州&lt;/p&gt;</summary>
     
     
     
-    <category term="诗词作品/" scheme="https://tkvern.com/categories/%E8%AF%97%E8%AF%8D%E4%BD%9C%E5%93%81/"/>
+    <category term="诗词作品" scheme="https://tkvern.com/categories/%E8%AF%97%E8%AF%8D%E4%BD%9C%E5%93%81/"/>
     
     
   </entry>
@@ -1262,14 +1279,14 @@
     <link href="https://tkvern.com/20110802/%E8%B9%89%E8%B7%8E/"/>
     <id>https://tkvern.com/20110802/%E8%B9%89%E8%B7%8E/</id>
     <published>2011-08-01T18:20:00.000Z</published>
-    <updated>2026-03-09T13:52:28.012Z</updated>
+    <updated>2026-03-19T05:13:07.565Z</updated>
     
     
     <summary type="html">&lt;p&gt;蹉跎，作于广州&lt;/p&gt;</summary>
     
     
     
-    <category term="诗词作品/" scheme="https://tkvern.com/categories/%E8%AF%97%E8%AF%8D%E4%BD%9C%E5%93%81/"/>
+    <category term="诗词作品" scheme="https://tkvern.com/categories/%E8%AF%97%E8%AF%8D%E4%BD%9C%E5%93%81/"/>
     
     
   </entry>
@@ -1279,14 +1296,14 @@
     <link href="https://tkvern.com/20110129/%E4%B8%AD%E5%9B%BD%E7%9A%84%E6%A2%A6%E6%88%91%E4%BB%AC%E7%9A%84%E6%A2%A6/"/>
     <id>https://tkvern.com/20110129/%E4%B8%AD%E5%9B%BD%E7%9A%84%E6%A2%A6%E6%88%91%E4%BB%AC%E7%9A%84%E6%A2%A6/</id>
     <published>2011-01-28T18:20:00.000Z</published>
-    <updated>2026-03-09T13:52:28.010Z</updated>
+    <updated>2026-03-19T05:13:07.554Z</updated>
     
     
     <summary type="html">&lt;p&gt;中国的梦 我们的梦，作于永州&lt;/p&gt;</summary>
     
     
     
-    <category term="诗词作品/" scheme="https://tkvern.com/categories/%E8%AF%97%E8%AF%8D%E4%BD%9C%E5%93%81/"/>
+    <category term="诗词作品" scheme="https://tkvern.com/categories/%E8%AF%97%E8%AF%8D%E4%BD%9C%E5%93%81/"/>
     
     
   </entry>
@@ -1296,14 +1313,14 @@
     <link href="https://tkvern.com/20110129/%E6%98%A8%E5%A4%9C%E6%A1%82%E8%8A%B1%E9%A6%99/"/>
     <id>https://tkvern.com/20110129/%E6%98%A8%E5%A4%9C%E6%A1%82%E8%8A%B1%E9%A6%99/</id>
     <published>2011-01-28T18:20:00.000Z</published>
-    <updated>2026-03-09T13:52:28.011Z</updated>
+    <updated>2026-03-19T05:13:07.587Z</updated>
     
     
     <summary type="html">&lt;p&gt;昨夜桂花香，作于永州&lt;/p&gt;</summary>
     
     
     
-    <category term="诗词作品/" scheme="https://tkvern.com/categories/%E8%AF%97%E8%AF%8D%E4%BD%9C%E5%93%81/"/>
+    <category term="诗词作品" scheme="https://tkvern.com/categories/%E8%AF%97%E8%AF%8D%E4%BD%9C%E5%93%81/"/>
     
     
   </entry>
